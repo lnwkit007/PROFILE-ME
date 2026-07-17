@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  background-color: #0C0503;
+}
+
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+}
