@@ -1,17 +1,15 @@
 <script setup lang="ts">
+// import components
 import ProfileCard from "./bits/ProfileCard.vue";
 import ScrambledText from "./bits/ScrambleText.vue";
-
-const handleContactClick = () => {
-  console.log("Contact clicked");
-};
 </script>
 
 <template>
+  <!-- ////////// Container /////////// -->
   <div class="flex items-center justify-between py-9 mx-auto max-w-330">
     <div class="flex flex-col items-center xl:items-start xl:flex-row gap-6 xl:gap-2">
       <div class="mr-6">
-        <span class="jersey-10-regular flex gap-2 text-[96px] cursor-pointer">
+        <h2 class="jersey-10-regular flex gap-2 text-[96px] cursor-pointer">
           <p
             class="bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
           >
@@ -22,7 +20,7 @@ const handleContactClick = () => {
           >
             ME
           </p>
-        </span>
+        </h2>
 
         <ScrambledText
           className="scrambled-text-demo"
@@ -114,13 +112,12 @@ const handleContactClick = () => {
         name="Kitsada Ketrai"
         title="Full Stack Designer"
         handle="lnwkit007"
-        status="Online"
+        status="Github"
         contact-text="Contact Me"
         avatar-url="../../public/image/kitsada.png"
         :show-user-info="true"
         :enable-tilt="true"
         :enable-mobile-tilt="false"
-        @contact-click="handleContactClick"
       />
     </div>
   </div>

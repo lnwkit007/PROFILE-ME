@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from "vue";
 
-const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
+const DEFAULT_INNER_GRADIENT =
+  "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
 
 const ANIMATION_CONFIG = {
   INITIAL_DURATION: 1200,
   INITIAL_X_OFFSET: 70,
   INITIAL_Y_OFFSET: 60,
   DEVICE_BETA_OFFSET: 20,
-  ENTER_TRANSITION_MS: 180
+  ENTER_TRANSITION_MS: 180,
 } as const;
 
 interface Props {
@@ -33,20 +34,20 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  avatarUrl: '<Placeholder for avatar URL>',
-  iconUrl: '<Placeholder for icon URL>',
-  grainUrl: '<Placeholder for grain URL>',
+  avatarUrl: "<Placeholder for avatar URL>",
+  iconUrl: "<Placeholder for icon URL>",
+  grainUrl: "<Placeholder for grain URL>",
   behindGlowEnabled: true,
-  className: '',
+  className: "",
   enableTilt: true,
   enableMobileTilt: false,
   mobileTiltSensitivity: 5,
-  name: 'Javi A. Torres',
-  title: 'Software Engineer',
-  handle: 'javicodes',
-  status: 'Online',
-  contactText: 'Contact',
-  showUserInfo: true
+  name: "Javi A. Torres",
+  title: "Software Engineer",
+  handle: "javicodes",
+  status: "Online",
+  contactText: "Contact",
+  showUserInfo: true,
 });
 
 const emit = defineEmits<{ contactClick: [] }>();
@@ -72,10 +73,16 @@ function createTiltEngine() {
   const INITIAL_TAU = 0.6;
   let initialUntil = 0;
 
-  const clamp = (v: number, min = 0, max = 100) => Math.min(Math.max(v, min), max);
+  const clamp = (v: number, min = 0, max = 100) =>
+    Math.min(Math.max(v, min), max);
   const round = (v: number, precision = 3) => parseFloat(v.toFixed(precision));
-  const adjust = (v: number, fMin: number, fMax: number, tMin: number, tMax: number) =>
-    round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
+  const adjust = (
+    v: number,
+    fMin: number,
+    fMax: number,
+    tMin: number,
+    tMax: number,
+  ) => round(tMin + ((tMax - tMin) * (v - fMin)) / (fMax - fMin));
 
   const setVarsFromXY = (x: number, y: number) => {
     const shell = shellRef.value;
@@ -92,15 +99,15 @@ function createTiltEngine() {
     const centerY = percentY - 50;
 
     const properties: Record<string, string> = {
-      '--pointer-x': `${percentX}%`,
-      '--pointer-y': `${percentY}%`,
-      '--background-x': `${adjust(percentX, 0, 100, 35, 65)}%`,
-      '--background-y': `${adjust(percentY, 0, 100, 35, 65)}%`,
-      '--pointer-from-center': `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
-      '--pointer-from-top': `${percentY / 100}`,
-      '--pointer-from-left': `${percentX / 100}`,
-      '--rotate-x': `${round(-(centerX / 5))}deg`,
-      '--rotate-y': `${round(centerY / 4)}deg`
+      "--pointer-x": `${percentX}%`,
+      "--pointer-y": `${percentY}%`,
+      "--background-x": `${adjust(percentX, 0, 100, 35, 65)}%`,
+      "--background-y": `${adjust(percentY, 0, 100, 35, 65)}%`,
+      "--pointer-from-center": `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
+      "--pointer-from-top": `${percentY / 100}`,
+      "--pointer-from-left": `${percentX / 100}`,
+      "--rotate-x": `${round(-(centerX / 5))}deg`,
+      "--rotate-y": `${round(centerY / 4)}deg`,
     };
 
     for (const [k, v] of Object.entries(properties)) {
@@ -122,7 +129,9 @@ function createTiltEngine() {
 
     setVarsFromXY(currentX, currentY);
 
-    const stillFar = Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05;
+    const stillFar =
+      Math.abs(targetX - currentX) > 0.05 ||
+      Math.abs(targetY - currentY) > 0.05;
 
     if (stillFar || document.hasFocus()) {
       rafId = requestAnimationFrame(step);
@@ -171,7 +180,7 @@ function createTiltEngine() {
       rafId = null;
       running = false;
       lastTs = 0;
-    }
+    },
   };
 }
 
@@ -191,11 +200,11 @@ const handlePointerEnter = (event: PointerEvent) => {
   const shell = shellRef.value;
   if (!shell || !tiltEngine || !props.enableTilt) return;
 
-  shell.classList.add('active');
-  shell.classList.add('entering');
+  shell.classList.add("active");
+  shell.classList.add("entering");
   if (enterTimerRef.value) window.clearTimeout(enterTimerRef.value);
   enterTimerRef.value = window.setTimeout(() => {
-    shell.classList.remove('entering');
+    shell.classList.remove("entering");
   }, ANIMATION_CONFIG.ENTER_TRANSITION_MS);
 
   const { x, y } = getOffsets(event, shell);
@@ -212,7 +221,7 @@ const handlePointerLeave = () => {
     const { x, y, tx, ty } = tiltEngine!.getCurrent();
     const settled = Math.hypot(tx - x, ty - y) < 0.6;
     if (settled) {
-      shell.classList.remove('active');
+      shell.classList.remove("active");
       leaveRafRef.value = null;
     } else {
       leaveRafRef.value = requestAnimationFrame(checkSettle);
@@ -229,37 +238,42 @@ const handleDeviceOrientation = (event: DeviceOrientationEvent) => {
   const { beta, gamma } = event;
   if (beta == null || gamma == null) return;
 
-  const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max);
+  const clamp = (v: number, min: number, max: number) =>
+    Math.min(Math.max(v, min), max);
 
   const centerX = shell.clientWidth / 2;
   const centerY = shell.clientHeight / 2;
-  const x = clamp(centerX + gamma * props.mobileTiltSensitivity, 0, shell.clientWidth);
-  const y = clamp(
-    centerY + (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * props.mobileTiltSensitivity,
+  const x = clamp(
+    centerX + gamma * props.mobileTiltSensitivity,
     0,
-    shell.clientHeight
+    shell.clientWidth,
+  );
+  const y = clamp(
+    centerY +
+      (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) *
+        props.mobileTiltSensitivity,
+    0,
+    shell.clientHeight,
   );
 
   tiltEngine.setTarget(x, y);
 };
 
 const cardStyle = computed(() => ({
-  '--icon': props.iconUrl ? `url(${props.iconUrl})` : 'none',
-  '--grain': props.grainUrl ? `url(${props.grainUrl})` : 'none',
-  '--inner-gradient': props.innerGradient ?? DEFAULT_INNER_GRADIENT,
-  '--behind-glow-color': props.behindGlowColor ?? 'rgba(125, 190, 255, 0.67)',
-  '--behind-glow-size': props.behindGlowSize ?? '50%'
+  "--icon": props.iconUrl ? `url(${props.iconUrl})` : "none",
+  "--grain": props.grainUrl ? `url(${props.grainUrl})` : "none",
+  "--inner-gradient": props.innerGradient ?? DEFAULT_INNER_GRADIENT,
+  "--behind-glow-color": props.behindGlowColor ?? "rgba(125, 190, 255, 0.67)",
+  "--behind-glow-size": props.behindGlowSize ?? "50%",
 }));
 
-const handleContactClick = () => emit('contactClick');
-
 const handleAvatarError = (event: Event) => {
-  (event.target as HTMLImageElement).style.display = 'none';
+  (event.target as HTMLImageElement).style.display = "none";
 };
 
 const handleMiniAvatarError = (event: Event) => {
   const t = event.target as HTMLImageElement;
-  t.style.opacity = '0.5';
+  t.style.opacity = "0.5";
   t.src = props.avatarUrl;
 };
 
@@ -274,31 +288,34 @@ onMounted(() => {
   const shell = shellRef.value;
   if (!shell) return;
 
-  shell.addEventListener('pointerenter', handlePointerEnter);
-  shell.addEventListener('pointermove', handlePointerMove);
-  shell.addEventListener('pointerleave', handlePointerLeave);
+  shell.addEventListener("pointerenter", handlePointerEnter);
+  shell.addEventListener("pointermove", handlePointerMove);
+  shell.addEventListener("pointerleave", handlePointerLeave);
 
   clickHandler = () => {
-    if (!props.enableMobileTilt || location.protocol !== 'https:') return;
+    if (!props.enableMobileTilt || location.protocol !== "https:") return;
     const anyMotion = window.DeviceMotionEvent as typeof DeviceMotionEvent & {
       requestPermission?: () => Promise<string>;
     };
-    if (anyMotion && typeof anyMotion.requestPermission === 'function') {
+    if (anyMotion && typeof anyMotion.requestPermission === "function") {
       anyMotion
         .requestPermission()
         .then((state: string) => {
-          if (state === 'granted') {
-            window.addEventListener('deviceorientation', handleDeviceOrientation);
+          if (state === "granted") {
+            window.addEventListener(
+              "deviceorientation",
+              handleDeviceOrientation,
+            );
             deviceOrientationBound = true;
           }
         })
         .catch(console.error);
     } else {
-      window.addEventListener('deviceorientation', handleDeviceOrientation);
+      window.addEventListener("deviceorientation", handleDeviceOrientation);
       deviceOrientationBound = true;
     }
   };
-  shell.addEventListener('click', clickHandler);
+  shell.addEventListener("click", clickHandler);
 
   const initialX = (shell.clientWidth || 0) - ANIMATION_CONFIG.INITIAL_X_OFFSET;
   const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
@@ -310,14 +327,14 @@ onMounted(() => {
 onUnmounted(() => {
   const shell = shellRef.value;
   if (shell) {
-    shell.removeEventListener('pointerenter', handlePointerEnter);
-    shell.removeEventListener('pointermove', handlePointerMove);
-    shell.removeEventListener('pointerleave', handlePointerLeave);
-    if (clickHandler) shell.removeEventListener('click', clickHandler);
-    shell.classList.remove('entering');
+    shell.removeEventListener("pointerenter", handlePointerEnter);
+    shell.removeEventListener("pointermove", handlePointerMove);
+    shell.removeEventListener("pointerleave", handlePointerLeave);
+    if (clickHandler) shell.removeEventListener("click", clickHandler);
+    shell.classList.remove("entering");
   }
   if (deviceOrientationBound) {
-    window.removeEventListener('deviceorientation', handleDeviceOrientation);
+    window.removeEventListener("deviceorientation", handleDeviceOrientation);
   }
   if (enterTimerRef.value) window.clearTimeout(enterTimerRef.value);
   if (leaveRafRef.value) cancelAnimationFrame(leaveRafRef.value);
@@ -326,7 +343,11 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="wrapRef" :class="`pc-card-wrapper ${className}`.trim()" :style="cardStyle">
+  <div
+    ref="wrapRef"
+    :class="`pc-card-wrapper ${className}`.trim()"
+    :style="cardStyle"
+  >
     <div v-if="behindGlowEnabled" class="pc-behind" />
 
     <div ref="shellRef" class="pc-card-shell">
@@ -359,15 +380,6 @@ onUnmounted(() => {
                   <div class="pc-status">{{ status }}</div>
                 </div>
               </div>
-              <button
-                class="pc-contact-btn"
-                @click="handleContactClick"
-                style="pointer-events: auto"
-                type="button"
-                :aria-label="`Contact ${name || 'user'}`"
-              >
-                {{ contactText }}
-              </button>
             </div>
           </div>
 
@@ -494,7 +506,8 @@ onUnmounted(() => {
   mask-mode: luminance;
   mask-repeat: repeat;
   mask-size: 150%;
-  mask-position: top calc(200% - (var(--background-y) * 5)) left calc(100% - var(--background-x));
+  mask-position: top calc(200% - (var(--background-y) * 5)) left
+    calc(100% - var(--background-x));
   transition: filter 0.8s ease;
   filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
   animation: holo-bg 18s linear infinite;
@@ -552,7 +565,7 @@ onUnmounted(() => {
 
 .pc-shine::before,
 .pc-shine::after {
-  content: '';
+  content: "";
   background-position: center;
   background-size: cover;
   grid-area: 1/1;
@@ -584,7 +597,11 @@ onUnmounted(() => {
       var(--sunpillar-2),
       var(--sunpillar-3)
     ),
-    radial-gradient(circle at var(--pointer-x) var(--pointer-y), hsl(0, 0%, 70%) 0%, hsla(0, 0%, 30%, 0.2) 90%),
+    radial-gradient(
+      circle at var(--pointer-x) var(--pointer-y),
+      hsl(0, 0%, 70%) 0%,
+      hsla(0, 0%, 30%, 0.2) 90%
+    ),
     var(--grain);
   background-size:
     250% 250%,
@@ -595,7 +612,8 @@ onUnmounted(() => {
     center,
     calc(var(--pointer-x) * 0.01) calc(var(--pointer-y) * 0.01);
   background-blend-mode: color-dodge;
-  filter: brightness(calc(2 - var(--pointer-from-center))) contrast(calc(var(--pointer-from-center) + 2))
+  filter: brightness(calc(2 - var(--pointer-from-center)))
+    contrast(calc(var(--pointer-from-center) + 2))
     saturate(calc(0.5 + var(--pointer-from-center)));
   mix-blend-mode: luminosity;
 }
@@ -638,8 +656,9 @@ onUnmounted(() => {
   position: absolute;
   left: 50%;
   transform-origin: 50% 100%;
-  transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0)
-    scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01));
+  transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px))
+    translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02))
+    scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01));
   bottom: -1px;
   backface-visibility: hidden;
   will-change: transform;
@@ -647,7 +666,7 @@ onUnmounted(() => {
 }
 
 .pc-avatar-content::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -669,7 +688,9 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: calc(max(0px, var(--card-radius) - var(--ui-inset) + var(--ui-radius-bias)));
+  border-radius: calc(
+    max(0px, var(--card-radius) - var(--ui-inset) + var(--ui-radius-bias))
+  );
   padding: 12px 14px;
   pointer-events: auto;
 }
