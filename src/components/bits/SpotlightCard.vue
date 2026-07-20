@@ -7,8 +7,10 @@
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
     :class="[
-      'relative rounded-3xl border-2 overflow-hidden p-8 border-[#352F2D]',
+      'relative border-2 overflow-hidden border-[#352F2D]',
       className,
+      borderRadius,
+      padding,
     ]"
   >
     <div
@@ -18,9 +20,7 @@
         background: `radial-gradient(circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,
       }"
     />
-    <div
-      class="w-full h-full flex items-center justify-center"
-    >
+    <div class="w-full h-full flex items-center justify-center">
       <slot />
     </div>
   </div>
@@ -37,10 +37,16 @@ interface Position {
 interface SpotlightCardProps {
   className?: string;
   spotlightColor?: string;
+  borderRadius?: string;
+  padding?: string;
 }
 
-const { className = "", spotlightColor = "rgba(255, 255, 255, 0.25)" } =
-  defineProps<SpotlightCardProps>();
+const {
+  className = "",
+  spotlightColor = "rgba(255, 255, 255, 0.25)",
+  borderRadius = "",
+  padding = "",
+} = defineProps<SpotlightCardProps>();
 
 const divRef = useTemplateRef<HTMLDivElement>("divRef");
 const isFocused = ref<boolean>(false);
