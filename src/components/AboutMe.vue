@@ -114,7 +114,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
         handle="lnwkit007"
         status="Github"
         contact-text="Contact Me"
-        avatar-url="../../public/image/kitsada.png"
+        avatar-url="/image/hero/kitsada.png"
         :show-user-info="true"
         :enable-tilt="true"
         :enable-mobile-tilt="false"

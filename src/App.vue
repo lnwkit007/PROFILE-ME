@@ -8,6 +8,7 @@ import ScrollVelocity from "./components/bits/ScrollVelocity.vue";
 import AboutMe from "./components/AboutMe.vue";
 import MyStack from "./components/MyStack.vue";
 import Contact from "./components/Contact.vue";
+import Projects from "./components/Projects.vue";
 
 const velocity = ref<number>(60);
 </script>
@@ -22,5 +23,6 @@ const velocity = ref<number>(60);
   />
   <AboutMe />
   <MyStack />
+  <Projects />
   <Contact />
 </template>

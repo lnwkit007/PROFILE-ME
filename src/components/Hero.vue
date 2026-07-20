@@ -1,7 +1,7 @@
 <template>
   <section class="relative w-full h-screen overflow-hidden">
     <img
-      src="../../public/image/background-shadow-1.png"
+      src="/image/hero/background-shadow-1.png"
       alt="background-shadow-1"
       class="absolute w-full -bottom-25 z-0"
     />
@@ -13,13 +13,13 @@
     </h1>
 
     <img
-      src="../../public/image/kitsada.png"
+      src="/image/hero/kitsada.png"
       alt="kitsada"
       class="z-4 absolute bottom-0 max-h-157.5 left-1/2 -translate-x-1/2"
     />
 
     <img
-      src="../../public/image/background-shadow-2.png"
+      src="/image/hero/background-shadow-2.png"
       alt="background-shadow-2"
       class="z-5 absolute -bottom-20 w-full"
     />
