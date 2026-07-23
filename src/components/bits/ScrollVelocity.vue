@@ -8,7 +8,6 @@
       :style="parallaxStyle"
     >
       <div
-        ref="scrollerRef"
         :class="`${scrollerClassName} flex whitespace-nowrap text-center font-sans text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`"
         :style="{
           transform: `translateX(${scrollTransforms[index] || '0px'})`,
@@ -75,7 +74,6 @@ const props = withDefaults(defineProps<ScrollVelocityProps>(), {
 });
 
 const containerRef = ref<HTMLDivElement[]>([]);
-const scrollerRef = ref<HTMLDivElement[]>([]);
 const copyRefs = ref<HTMLSpanElement[]>([]);
 
 const baseX = ref<number[]>([]);
