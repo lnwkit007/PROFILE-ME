@@ -123,7 +123,7 @@ const projectLists = [
       <div class="border border-[#352F2D] w-full"></div>
     </div>
 
-    <div class="grid xl:grid-cols-3 py-9 mx-auto max-w-330 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4">
       <a
         v-for="project in projectLists"
         :href="project.path"
