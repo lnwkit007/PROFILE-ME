@@ -110,7 +110,7 @@ watch(
 <template>
   <div
     ref="rootRef"
-    :class="`font-mono text-xl text-white/60 ${className}`"
+    :class="`font-mono text-base lg:text-xl text-white/60 ${className}`"
     :style="style"
   >
     <p>

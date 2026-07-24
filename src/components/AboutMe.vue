@@ -10,7 +10,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
     class="flex items-center justify-between px-4 lg:px-6 py-6 md:py-9 mx-auto max-w-330"
   >
     <div
-      class="flex flex-col items-center xl:items-start xl:flex-row gap-6 xl:gap-2"
+      class="flex flex-col items-center xl:items-start lg:flex-row gap-6 xl:gap-2"
     >
       <div class="xl:mr-6">
         <h2
@@ -34,6 +34,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
           :duration="1.2"
           :speed="0.5"
           scrambleChars=".:"
+          class="mt-2 lg:mt-0"
         >
           As a Front-End Developer, I enjoy transforming creative ideas into
           modern, responsive, and interactive web applications. I focus on
