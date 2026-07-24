@@ -1,0 +1,10 @@
+.hero {
+  height: 100vh;
+}
+
+@media screen and (min-height: 900px) {
+  .hero {
+    min-height: 637.5px;
+    height: auto;
+  }
+}
