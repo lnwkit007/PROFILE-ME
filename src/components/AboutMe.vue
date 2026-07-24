@@ -74,7 +74,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
               :speed="0.5"
               scrambleChars=".:"
             >
-              Nong Bua Lamphu, Thailand
+              จังหวัดหนองบัวลำภู ประเทศไทย
             </ScrambledText>
           </span>
 
@@ -107,7 +107,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
               :speed="0.5"
               scrambleChars=".:"
             >
-              Bachelor of Engineering in Computer Engineering
+               วิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเกษตรศาสตร์ (กำลังศึกษา)
             </ScrambledText>
           </span>
         </div>
