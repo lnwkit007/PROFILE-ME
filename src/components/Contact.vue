@@ -36,7 +36,7 @@ const contactLists = [
       <div class="border border-[#352F2D] w-full"></div>
     </div>
 
-    <div class="grid grid-cols-3 py-9 mx-auto max-w-330 gap-4">
+    <div class="grid xl:grid-cols-3 py-9 mx-auto max-w-330 gap-4">
       <a
         v-for="contact in contactLists"
         :href="contact.path"

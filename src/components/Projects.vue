@@ -116,14 +116,14 @@ const projectLists = [
     <div class="flex items-center gap-4">
       <div class="border border-[#352F2D] w-full"></div>
       <h2
-        class="jersey-10-regular flex gap-2 text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
+        class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
       >
         Projects
       </h2>
       <div class="border border-[#352F2D] w-full"></div>
     </div>
 
-    <div class="grid grid-cols-3 py-9 mx-auto max-w-330 gap-4">
+    <div class="grid xl:grid-cols-3 py-9 mx-auto max-w-330 gap-4">
       <a
         v-for="project in projectLists"
         :href="project.path"
