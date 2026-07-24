@@ -1,7 +1,11 @@
 <template>
-  <nav class="fixed w-full top-0 z-200">
-    <div class="flex items-center justify-between px-4 py-4 mx-auto max-w-330">
-      <span class="jersey-10-regular flex gap-2 text-4xl cursor-pointer">
+  <nav class="fixed w-full top-0 z-200 p-2">
+    <div
+      class="flex items-center justify-between mx-auto max-w-330 px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-lg"
+    >
+      <span
+        class="jersey-10-regular flex gap-2 text-3xl sm:text-4xl cursor-pointer"
+      >
         <p
           class="bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
         >
@@ -17,8 +21,8 @@
       <button class="block sm:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
+          width="20"
+          height="20"
           color="#7C7978"
           viewBox="0 0 24 24"
           fill="none"

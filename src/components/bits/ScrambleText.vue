@@ -1,8 +1,14 @@
 <script setup lang="ts">
-import { gsap } from 'gsap';
-import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
-import { SplitText } from 'gsap/SplitText';
-import { onMounted, onUnmounted, useTemplateRef, watch, type CSSProperties } from 'vue';
+import { gsap } from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { SplitText } from "gsap/SplitText";
+import {
+  onMounted,
+  onUnmounted,
+  useTemplateRef,
+  watch,
+  type CSSProperties,
+} from "vue";
 
 gsap.registerPlugin(SplitText, ScrambleTextPlugin);
 
@@ -19,12 +25,12 @@ const props = withDefaults(defineProps<ScrambleTextProps>(), {
   radius: 100,
   duration: 1.2,
   speed: 0.5,
-  scrambleChars: '.:',
-  className: '',
-  style: () => ({})
+  scrambleChars: ".:",
+  className: "",
+  style: () => ({}),
 });
 
-const rootRef = useTemplateRef<HTMLDivElement>('rootRef');
+const rootRef = useTemplateRef<HTMLDivElement>("rootRef");
 
 let splitText: SplitText | null = null;
 let handleMove: ((e: PointerEvent) => void) | null = null;
@@ -32,23 +38,23 @@ let handleMove: ((e: PointerEvent) => void) | null = null;
 const initializeScrambleText = () => {
   if (!rootRef.value) return;
 
-  const pElement = rootRef.value.querySelector('p');
+  const pElement = rootRef.value.querySelector("p");
   if (!pElement) return;
 
   splitText = new SplitText(pElement, {
-    type: 'chars',
-    charsClass: 'inline-block will-change-transform'
+    type: "chars",
+    charsClass: "inline-block will-change-transform",
   });
 
-  splitText.chars.forEach(el => {
+  splitText.chars.forEach((el) => {
     const c = el as HTMLElement;
-    gsap.set(c, { attr: { 'data-content': c.innerHTML } });
+    gsap.set(c, { attr: { "data-content": c.innerHTML } });
   });
 
   handleMove = (e: PointerEvent) => {
     if (!splitText) return;
 
-    splitText.chars.forEach(el => {
+    splitText.chars.forEach((el) => {
       const c = el as HTMLElement;
       const { left, top, width, height } = c.getBoundingClientRect();
       const dx = e.clientX - (left + width / 2);
@@ -60,22 +66,22 @@ const initializeScrambleText = () => {
           overwrite: true,
           duration: props.duration * (1 - dist / props.radius),
           scrambleText: {
-            text: c.dataset.content || '',
+            text: c.dataset.content || "",
             chars: props.scrambleChars,
-            speed: props.speed
+            speed: props.speed,
           },
-          ease: 'none'
+          ease: "none",
         });
       }
     });
   };
 
-  rootRef.value.addEventListener('pointermove', handleMove);
+  rootRef.value.addEventListener("pointermove", handleMove);
 };
 
 const cleanup = () => {
   if (rootRef.value && handleMove) {
-    rootRef.value.removeEventListener('pointermove', handleMove);
+    rootRef.value.removeEventListener("pointermove", handleMove);
   }
   if (splitText) {
     splitText.revert();
@@ -97,14 +103,14 @@ watch(
   () => {
     cleanup();
     initializeScrambleText();
-  }
+  },
 );
 </script>
 
 <template>
   <div
     ref="rootRef"
-    :class="`font-mono text-xl text-white ${className}`"
+    :class="`font-mono text-xl text-white/60 ${className}`"
     :style="style"
   >
     <p>

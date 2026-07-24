@@ -140,10 +140,10 @@ const projectLists = [
               />
 
               <div>
-                <h3 class="jersey-10-regular text-3xl text-white">
+                <h3 class="jersey-10-regular text-3xl text-white/80">
                   {{ project.title }}
                 </h3>
-                <p class="jetbrains-mono text-white">
+                <p class="jetbrains-mono text-white/60">
                   {{ project.description }}
                 </p>
               </div>
