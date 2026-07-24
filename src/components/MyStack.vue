@@ -91,7 +91,8 @@ const stackLitsts = {
 
 <template>
   <!-- ////////// Container /////////// -->
-  <div class="py-9">
+  <div class="py-6 md:py-9">
+    <!-- ////////// Title ////////// -->
     <div class="flex items-center gap-4">
       <div class="border border-[#352F2D] w-full"></div>
       <h2
@@ -111,9 +112,11 @@ const stackLitsts = {
       <div class="border border-[#352F2D] w-full"></div>
     </div>
 
+    <!-- ////////// Content ////////// -->
     <div
       class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 px-2 sm:px-3 md:px-4 lg:px-6 xl:grid-cols-6 grid-rows-3 pt-6 lg:py-9 mx-auto max-w-330 gap-2"
     >
+      <!-- ////////// Item ////////// -->
       <SpotlightCard
         v-for="(stack, index) in stackLitsts.data"
         :key="index"

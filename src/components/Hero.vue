@@ -24,7 +24,6 @@
       alt="kitsada"
       class="z-4 absolute bottom-0 left-1/2 -translate-x-1/2 w-[clamp(570px,35vw,630px)] min-h-118 sm:h-auto object-cover"
     />
-    <!-- class="z-4 absolute bottom-0 left-1/2 -translate-x-1/2 w-[clamp(570px,35vw,630px)] h-auto object-contain" -->
 
     <!-- ////////// Background Shadow ////////// -->
     <img

@@ -112,7 +112,8 @@ const projectLists = [
 
 <template>
   <!-- ////////// Container /////////// -->
-  <div class="py-9">
+  <div class="py-6 md:py-9">
+    <!-- ////////// Title ////////// -->
     <div class="flex items-center gap-4">
       <div class="border border-[#352F2D] w-full"></div>
       <h2
@@ -123,7 +124,9 @@ const projectLists = [
       <div class="border border-[#352F2D] w-full"></div>
     </div>
 
+    <!-- ////////// Content ////////// -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4">
+      <!-- ////////// Item ////////// -->
       <a
         v-for="project in projectLists"
         :href="project.path"

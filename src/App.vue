@@ -24,5 +24,5 @@ const velocity = ref<number>(60);
   <AboutMe />
   <MyStack />
   <Projects />
-  <!-- <Contact /> -->
+  <Contact />
 </template>
