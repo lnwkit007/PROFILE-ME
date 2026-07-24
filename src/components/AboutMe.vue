@@ -38,13 +38,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
           scrambleChars=".:"
           class="mt-2 lg:mt-0"
         >
-          As a Front-End Developer, I enjoy transforming creative ideas into
-          modern, responsive, and interactive web applications. I focus on
-          writing clean, maintainable code while creating user interfaces that
-          are intuitive, accessible, and visually appealing. I believe that
-          great products are built by combining thoughtful design with efficient
-          development, and I'm always looking for opportunities to learn, grow,
-          and deliver better user experienc.
+          นักศึกษาชั้นปีที่ 4 สาขาวิศวกรรมคอมพิวเตอร์ สนใจการพัฒนาเว็บไซต์ฝั่ง Front-End และการออกแบบ UX/UI มีประสบการณ์พัฒนาเว็บไซต์ด้วย React, Vue และ TypeScript สามารถนำแบบจาก Figma มาพัฒนาเป็นเว็บไซต์ที่ตรงตามดีไซน์ พร้อมให้ความสำคัญกับประสบการณ์ผู้ใช้ (UX) การออกแบบที่รองรับทุกขนาดหน้าจอ (Responsive Design) และการเขียนโค้ดที่มีคุณภาพ พร้อมเรียนรู้และพัฒนาทักษะอย่างต่อเนื่องเพื่อสร้างเว็บไซต์ที่ตอบโจทย์ผู้ใช้งาน
         </ScrambledText>
 
         <div class="flex flex-col gap-2 mt-6">
