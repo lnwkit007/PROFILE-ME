@@ -13,6 +13,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
       class="flex flex-col items-center xl:items-start lg:flex-row gap-6 xl:gap-2"
     >
       <div class="xl:mr-6">
+        <!-- ////////// Title ////////// -->
         <h2
           class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer"
         >
@@ -28,6 +29,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
           </p>
         </h2>
 
+        <!-- ////////// Description ////////// -->
         <ScrambledText
           className="scrambled-text-demo"
           :radius="100"
@@ -46,6 +48,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
         </ScrambledText>
 
         <div class="flex flex-col gap-2 mt-6">
+          <!-- ////////// Study ////////// -->
           <span class="flex gap-2 items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,6 +84,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
             </ScrambledText>
           </span>
 
+          <!-- ////////// Address ////////// -->
           <span span class="flex gap-2 items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +119,7 @@ import ScrambledText from "./bits/ScrambleText.vue";
         </div>
       </div>
 
+      <!-- ////////// Image Me ////////// -->
       <ProfileCard
         name="Kitsada Ketrai"
         title="Full Stack Designer"
