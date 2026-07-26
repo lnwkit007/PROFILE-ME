@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // import components
 import ProfileCard from "./bits/ProfileCard.vue";
-import ScrambledText from "./bits/ScrambleText.vue";
 </script>
 
 <template>
@@ -30,16 +29,16 @@ import ScrambledText from "./bits/ScrambleText.vue";
         </h2>
 
         <!-- ////////// Description ////////// -->
-        <ScrambledText
-          className="scrambled-text-demo"
-          :radius="100"
-          :duration="1.2"
-          :speed="0.5"
-          scrambleChars=".:"
-          class="mt-2 lg:mt-0"
-        >
-          นักศึกษาชั้นปีที่ 4 สาขาวิศวกรรมคอมพิวเตอร์ สนใจการพัฒนาเว็บไซต์ฝั่ง Front-End และการออกแบบ UX/UI มีประสบการณ์พัฒนาเว็บไซต์ด้วย React, Vue และ TypeScript สามารถนำแบบจาก Figma มาพัฒนาเป็นเว็บไซต์ที่ตรงตามดีไซน์ พร้อมให้ความสำคัญกับประสบการณ์ผู้ใช้ (UX) การออกแบบที่รองรับทุกขนาดหน้าจอ (Responsive Design) และการเขียนโค้ดที่มีคุณภาพ พร้อมเรียนรู้และพัฒนาทักษะอย่างต่อเนื่องเพื่อสร้างเว็บไซต์ที่ตอบโจทย์ผู้ใช้งาน
-        </ScrambledText>
+
+        <p class="noto-sans-thai text-base lg:text-xl text-white/60">
+          นักศึกษาชั้นปีที่ 4 สาขาวิศวกรรมคอมพิวเตอร์ สนใจการพัฒนาเว็บไซต์ฝั่ง
+          Front-End และการออกแบบ UX/UI มีประสบการณ์พัฒนาเว็บไซต์ด้วย React, Vue
+          และ TypeScript สามารถนำแบบจาก Figma มาพัฒนาเป็นเว็บไซต์ที่ตรงตามดีไซน์
+          พร้อมให้ความสำคัญกับประสบการณ์ผู้ใช้ (UX)
+          การออกแบบที่รองรับทุกขนาดหน้าจอ (Responsive Design)
+          และการเขียนโค้ดที่มีคุณภาพ
+          พร้อมเรียนรู้และพัฒนาทักษะอย่างต่อเนื่องเพื่อสร้างเว็บไซต์ที่ตอบโจทย์ผู้ใช้งาน
+        </p>
 
         <div class="flex flex-col gap-2 mt-6">
           <!-- ////////// Study ////////// -->
@@ -67,15 +66,9 @@ import ScrambledText from "./bits/ScrambleText.vue";
               <circle cx="10" cy="10" r="3" />
             </svg>
 
-            <ScrambledText
-              className="scrambled-text-demo"
-              :radius="100"
-              :duration="1.2"
-              :speed="0.5"
-              scrambleChars=".:"
-            >
+            <p class="noto-sans-thai text-base lg:text-xl text-white/60">
               จังหวัดหนองบัวลำภู ประเทศไทย
-            </ScrambledText>
+            </p>
           </span>
 
           <!-- ////////// Address ////////// -->
@@ -100,15 +93,9 @@ import ScrambledText from "./bits/ScrambleText.vue";
               <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
             </svg>
 
-            <ScrambledText
-              className="scrambled-text-demo"
-              :radius="100"
-              :duration="1.2"
-              :speed="0.5"
-              scrambleChars=".:"
-            >
-               วิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเกษตรศาสตร์ (กำลังศึกษา)
-            </ScrambledText>
+            <p class="noto-sans-thai text-base lg:text-xl text-white/60">
+              วิศวกรรมศาสตรบัณฑิต สาขาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเกษตรศาสตร์
+            </p>
           </span>
         </div>
       </div>

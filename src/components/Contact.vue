@@ -8,12 +8,12 @@ const contactLists = [
     name: "lnwkit007",
     path: "https://github.com/lnwkit007",
   },
-  {
-    spotlightColor: "rgba(255, 123, 0, 0.42)",
-    icon: '<svg width="64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><path d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453" fill="#CECDCD" /></svg>',
-    name: "Kitsada Ketrai",
-    path: "https://www.linkedin.com/in/kitsada-ketrai-2a4a94422",
-  },
+  // {
+  //   spotlightColor: "rgba(255, 123, 0, 0.42)",
+  //   icon: '<svg width="64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 256"><path d="M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.907 39.907 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186l-.016 67.013ZM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009-.002-12.157 9.851-22.014 22.008-22.016 12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97v122.16ZM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453" fill="#CECDCD" /></svg>',
+  //   name: "Kitsada Ketrai",
+  //   path: "https://www.linkedin.com/in/kitsada-ketrai-2a4a94422",
+  // },
   {
     spotlightColor: "rgba(255, 123, 0, 0.42)",
     icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 49.4 512 399.42" width="64"><g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><path fill="#CECDCD" d="M34.91 448.818h81.454V251L0 163.727V413.91c0 19.287 15.622 34.91 34.91 34.91z"/><path fill="#CECDCD" d="M395.636 448.818h81.455c19.287 0 34.909-15.622 34.909-34.909V163.727L395.636 251z" /><path fill="#CECDCD" d="M395.636 99.727V251L512 163.727v-46.545c0-43.142-49.25-67.782-83.782-41.891z" /></g><path fill="#CECDCD" d="M116.364 251V99.727L256 204.455 395.636 99.727V251L256 355.727z"/><path fill="#CECDCD" fill-rule="nonzero" d="M0 117.182v46.545L116.364 251V99.727L83.782 75.291C49.25 49.4 0 74.04 0 117.18z" /></g></svg>',
@@ -39,13 +39,13 @@ const contactLists = [
 
     <!-- ////////// Content ////////// -->
     <div
-      class="grid grid-cols-1 md:grid-cols-3 px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4"
+      class="flex flex-col md:flex-row px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4"
     >
       <!-- ////////// Item ////////// -->
       <a
         v-for="contact in contactLists"
         :href="contact.path"
-        class="cursor-pointer"
+        class="cursor-pointer w-full"
         target="_blank"
       >
         <SpotlightCard

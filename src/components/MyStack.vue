@@ -127,7 +127,7 @@ const stackLitsts = {
         <div class="flex flex-col items-center justify-between gap-4 h-full">
           <span v-html="stack.icon" />
           <p
-            class="jetbrains-mono text-base lg:text-xl text-white/60 text-center"
+            class="noto-sans text-base lg:text-xl text-white/60 text-center"
           >
             {{ stack.name }}
           </p>

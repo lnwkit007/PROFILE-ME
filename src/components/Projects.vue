@@ -6,7 +6,7 @@ const projectLists = [
     images: "/image/projects/ieecon2026.png",
     title: "iEECON 2026 (National Academic Conference)",
     description:
-      "Designed promotional banners and event graphics for iEECON 2026, an international academic conference in electrical engineering. Responsible for creating the main event banner and supporting visual materials, ensuring clear information hierarchy, consistent branding, and a professional visual identity. The designs were optimized for both digital and printed media to effectively promote the conference.",
+      "ออกแบบสื่อประชาสัมพันธ์สำหรับงานประชุมวิชาการระดับชาติ iEECON 2026 โดยรับผิดชอบการออกแบบ Banner และ Poster เพื่อใช้ทั้งในรูปแบบสื่อสิ่งพิมพ์และสื่อดิจิทัล ภายใต้แนวคิดการออกแบบที่สื่อสารข้อมูลได้อย่างชัดเจน มีความเป็นเอกลักษณ์ของงาน และคำนึงถึงความสวยงาม ความถูกต้องของข้อมูล และการใช้งานในหลากหลายขนาดของสื่อ",
     path: "https://www.ieecon.org/ieecon2026",
     techStack: [
       {
@@ -18,7 +18,7 @@ const projectLists = [
     images: "/image/projects/bottlerefund.png",
     title: "Bottlere Fund (Faculty Research Project)",
     description:
-      "asdfasdf",
+      "มีส่วนร่วมในโครงการวิจัย Bottlere Fund โดยรับผิดชอบตั้งแต่การออกแบบ UX/UI ไปจนถึงการพัฒนา Front-End ของเว็บไซต์ ประกอบด้วย Landing Page และหน้าการใช้งานของผู้ใช้ ออกแบบโดยคำนึงถึงความเรียบง่ายในการใช้งาน (User-Centered Design) การจัดวางข้อมูลที่ชัดเจน และรองรับการแสดงผลบนทุกอุปกรณ์ (Responsive Design)",
     path: "https://www.bottlerefund.net",
     techStack: [
       {
@@ -30,13 +30,16 @@ const projectLists = [
       {
         icon: '<svg xmlns="http://www.w3.org/2000/svg" fill="none" width="26" viewBox="0 0 54 33"><g clip-path="url(#a)"><path fill="#38bdf8" fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h54v32.4H0z"/></clipPath></defs></svg>',
       },
+      {
+        icon: '<svg width="26" height="26" viewBox="0 0 54 80" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_912_3)"><path d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z" fill="#0ACF83"/><path d="M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z" fill="#A259FF"/><path d="M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z" fill="#F24E1E"/><path d="M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z" fill="#FF7262"/><path d="M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z" fill="#1ABCFE"/></g><defs><clipPath id="clip0_912_3"><rect width="53.3333" height="80" fill="white"/></clipPath></defs></svg>',
+      },
     ],
   },
   {
     images: "/image/projects/nongbualamphu-travel.png",
     title: "Nongbualamphu Travel",
     description:
-      "Developed a tourism website for Nong Bua Lamphu Province that showcases local attractions, including natural destinations, temples, historical sites, and other landmarks. Designed with a user-friendly and responsive interface, the platform helps visitors easily explore travel information, plan their trips, and promotes tourism within the province.",
+      "พัฒนาเว็บไซต์ประชาสัมพันธ์การท่องเที่ยวจังหวัดหนองบัวลำภู เพื่อรวบรวมข้อมูลสถานที่ท่องเที่ยว แหล่งท่องเที่ยวทางธรรมชาติ วัด สถานที่สำคัญ และแหล่งท่องเที่ยวทางวัฒนธรรมไว้ในแพลตฟอร์มเดียว ช่วยให้ผู้ใช้งานสามารถค้นหาข้อมูล วางแผนการเดินทาง และเข้าถึงรายละเอียดของสถานที่ต่าง ๆ ได้อย่างสะดวก ผ่านการออกแบบที่ใช้งานง่ายและรองรับการแสดงผลบนทุกอุปกรณ์ (Responsive Design)",
     path: "https://nongbualamphu-trave.130169.xyz",
     techStack: [
       {
@@ -54,7 +57,7 @@ const projectLists = [
     images: "/image/projects/manga-good.png",
     title: "MangaGood",
     description:
-      "Developed a responsive online manga platform that allows users to browse, search, and read manga through a modern and user-friendly interface. The website features detailed manga pages, intuitive navigation, and an optimized reading experience across desktop and mobile devices.",
+      "พัฒนาเว็บไซต์สำหรับอ่านมังงะออนไลน์ โดยออกแบบให้ผู้ใช้งานสามารถค้นหา เลือกอ่าน และติดตามมังงะได้อย่างสะดวก พร้อมให้ความสำคัญกับการออกแบบส่วนติดต่อผู้ใช้ (UI) ที่เรียบง่าย การนำทางที่ใช้งานง่าย (UX) และการแสดงผลแบบ Responsive เพื่อรองรับการใช้งานบนอุปกรณ์หลากหลายประเภท",
     path: "https://manga-good.130169.xyz",
     techStack: [
       {
@@ -87,10 +90,10 @@ const projectLists = [
   //   ],
   // },
   {
-    images: "/image/projects/bilibili-clon.png",
-    title: "ReadRealm Clone",
+    images: "/image/projects/digital-reading-platform.png",
+    title: "Digital Reading Platform",
     description:
-      "Developed a responsive ReadRealm-inspired website clone to practice front-end development by recreating the platform's layout and user interface. The project demonstrates responsive design, reusable components, intuitive navigation, and modern UI implementation while showcasing the ability to transform an existing design into a functional and user-friendly web application.",
+      "พัฒนาเว็บไซต์ต้นแบบโดยอ้างอิงจากแพลตฟอร์ม ReadRealm เพื่อศึกษาและฝึกฝนการพัฒนาเว็บแอปพลิเคชัน โดยจำลองโครงสร้างและรูปแบบการใช้งานของเว็บไซต์อ่านนิยายและมังงะออนไลน์ พร้อมให้ความสำคัญกับการออกแบบส่วนติดต่อผู้ใช้ (UI) การจัดวางองค์ประกอบ การนำทางภายในเว็บไซต์ และการรองรับการแสดงผลแบบ Responsive เพื่อยกระดับทักษะด้าน Front-End Development",
     path: "/",
     techStack: [
       {
@@ -105,10 +108,10 @@ const projectLists = [
     ],
   },
   {
-    images: "/image/projects/bilibili-clon.png",
+    images: "/image/projects/ticket-flix.png",
     title: "Ticket Flix",
     description:
-      "Developed a responsive ThaiTicketMajor-inspired website clone to practice front-end development by recreating an online ticket booking platform for movies, concerts, and entertainment events. The project demonstrates responsive design, reusable components, intuitive navigation, and modern UI implementation while showcasing the ability to transform a complex ticketing interface into a functional and user-friendly web application.",
+      "พัฒนาเว็บไซต์สำหรับจองตั๋วภาพยนตร์กลางแจ้งและคอนเสิร์ต โดยผู้ใช้งานสามารถเลือกกิจกรรม ตรวจสอบรายละเอียด และจองตั๋วได้อย่างสะดวก ภายในระบบออกแบบให้รองรับการใช้งานที่เรียบง่าย พร้อมมุ่งเน้นประสบการณ์ผู้ใช้ (UX) และการแสดงผลแบบ Responsive เพื่อให้สามารถใช้งานได้อย่างมีประสิทธิภาพบนทุกอุปกรณ์",
     path: "/",
     techStack: [
       {
@@ -128,8 +131,7 @@ const projectLists = [
   {
     images: "/image/projects/knowledge-connect.png",
     title: "Knowledge Connect",
-    description:
-      "asdf",
+    description: "ออกแบบต้นแบบแอปพลิเคชัน (UI/UX) ด้วย Figma สำหรับแพลตฟอร์มแบ่งปันและค้นคว้าความรู้ ที่เปิดโอกาสให้ผู้ใช้งานสามารถเผยแพร่และเข้าถึงเนื้อหาด้านต่าง ๆ เช่น เทคนิคการเขียนโปรแกรม เนื้อหาทางคณิตศาสตร์ และสื่อการเรียนการสอน โดยมุ่งเน้นการออกแบบที่ใช้งานง่าย ช่วยให้ผู้ใช้สามารถค้นหา อ่าน และแบ่งปันความรู้ได้อย่างสะดวก",
     path: "https://www.figma.com/design/X87PBMaJtFMxdAEYyDvhwh/Knowledge-Connect?node-id=0-1&t=agdD0yHtUTDAWegm-1",
     techStack: [
       {
@@ -155,7 +157,9 @@ const projectLists = [
     </div>
 
     <!-- ////////// Content ////////// -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4"
+    >
       <!-- ////////// Item ////////// -->
       <a
         v-for="project in projectLists"
@@ -172,11 +176,11 @@ const projectLists = [
                 class="rounded-lg"
               />
 
-              <div>
+              <div class="flex flex-col gap-1">
                 <h3 class="jersey-10-regular text-3xl text-white/80">
                   {{ project.title }}
                 </h3>
-                <p class="jetbrains-mono text-white/60">
+                <p class="noto-sans-thai text-white/60">
                   {{ project.description }}
                 </p>
               </div>
