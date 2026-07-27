@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
 
+// import stores
+import { useOpenSidebarStore } from "../stores/openSidebarStore";
+const SidebarStore = useOpenSidebarStore();
+
+const openSidebar = () => {
+  SidebarStore.SwitchSidebar();
+}
+
+
 const menulists = [
   {
     name: "About",
@@ -42,7 +51,7 @@ const menulists = [
         </p>
       </RouterLink>
 
-      <button class="block sm:hidden">
+      <button class="block sm:hidden" @click="openSidebar">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
