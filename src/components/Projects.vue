@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { easeOut, motion } from "motion-v";
+
+// import components
 import SpotlightCard from "./bits/SpotlightCard.vue";
 
 const projectLists = [
@@ -131,7 +134,8 @@ const projectLists = [
   {
     images: "/image/projects/knowledge-connect.png",
     title: "Knowledge Connect",
-    description: "ออกแบบต้นแบบแอปพลิเคชัน (UI/UX) ด้วย Figma สำหรับแพลตฟอร์มแบ่งปันและค้นคว้าความรู้ ที่เปิดโอกาสให้ผู้ใช้งานสามารถเผยแพร่และเข้าถึงเนื้อหาด้านต่าง ๆ เช่น เทคนิคการเขียนโปรแกรม เนื้อหาทางคณิตศาสตร์ และสื่อการเรียนการสอน โดยมุ่งเน้นการออกแบบที่ใช้งานง่าย ช่วยให้ผู้ใช้สามารถค้นหา อ่าน และแบ่งปันความรู้ได้อย่างสะดวก",
+    description:
+      "ออกแบบต้นแบบแอปพลิเคชัน (UI/UX) ด้วย Figma สำหรับแพลตฟอร์มแบ่งปันและค้นคว้าความรู้ ที่เปิดโอกาสให้ผู้ใช้งานสามารถเผยแพร่และเข้าถึงเนื้อหาด้านต่าง ๆ เช่น เทคนิคการเขียนโปรแกรม เนื้อหาทางคณิตศาสตร์ และสื่อการเรียนการสอน โดยมุ่งเน้นการออกแบบที่ใช้งานง่าย ช่วยให้ผู้ใช้สามารถค้นหา อ่าน และแบ่งปันความรู้ได้อย่างสะดวก",
     path: "https://www.figma.com/design/X87PBMaJtFMxdAEYyDvhwh/Knowledge-Connect?node-id=0-1&t=agdD0yHtUTDAWegm-1",
     techStack: [
       {
@@ -146,57 +150,85 @@ const projectLists = [
   <!-- ////////// Container /////////// -->
   <div class="py-6 md:py-9">
     <!-- ////////// Title ////////// -->
-    <div class="flex items-center gap-4">
-      <div class="border border-[#352F2D] w-full"></div>
-      <h2
-        class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
-      >
-        Projects
-      </h2>
-      <div class="border border-[#352F2D] w-full"></div>
-    </div>
+    <motion.div
+      :initial="{
+        opacity: 0,
+      }"
+      :while-in-view="{
+        opacity: 1,
+      }"
+      :transition="{
+        duration: 1,
+        delay: 0.25,
+        ease: easeOut,
+      }"
+    >
+      <div class="flex items-center gap-4">
+        <div class="border border-[#352F2D] w-full"></div>
+        <h2
+          class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
+        >
+          Projects
+        </h2>
+        <div class="border border-[#352F2D] w-full"></div>
+      </div>
+    </motion.div>
 
     <!-- ////////// Content ////////// -->
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4"
+    <motion.div
+      :initial="{
+        opacity: 0,
+      }"
+      :while-in-view="{
+        opacity: 1,
+      }"
+      :transition="{
+        duration: 1,
+        delay: 0.5,
+        ease: easeOut,
+      }"
     >
-      <!-- ////////// Item ////////// -->
-      <a
-        v-for="project in projectLists"
-        :href="project.path"
-        class="cursor-pointer"
-        target="_blank"
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4"
       >
-        <SpotlightCard border-radius="rounded-2xl h-full" padding="p-6">
-          <div class="flex flex-col justify-between gap-3 h-full">
-            <div class="flex flex-col gap-2">
-              <img
-                :src="project.images"
-                :alt="project.title"
-                class="rounded-lg"
-              />
+        <!-- ////////// Item ////////// -->
+        <a
+          v-for="project in projectLists"
+          :href="project.path"
+          class="cursor-pointer"
+          target="_blank"
+        >
+          <SpotlightCard border-radius="rounded-2xl h-full" padding="p-6">
+            <div class="flex flex-col justify-between gap-3 h-full">
+              <div class="flex flex-col gap-2">
+                <img
+                  :src="project.images"
+                  :alt="project.title"
+                  class="rounded-lg"
+                />
 
-              <div class="flex flex-col gap-1">
-                <h3 class="jersey-10-regular text-3xl text-white/80">
-                  {{ project.title }}
-                </h3>
-                <p class="noto-sans-thai text-white/60">
-                  {{ project.description }}
-                </p>
+                <div class="flex flex-col gap-1">
+                  <h3 class="jersey-10-regular text-3xl text-white/80">
+                    {{ project.title }}
+                  </h3>
+                  <p class="noto-sans-thai text-white/60">
+                    {{ project.description }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-2 mt-2">
+                <div
+                  v-for="tech in project.techStack"
+                  class="border border-[#352F2D] flex justify-center items-center p-3 rounded-full"
+                >
+                  <span v-html="tech.icon"></span>
+                </div>
               </div>
             </div>
-
-            <div class="flex gap-2 mt-2">
-              <div
-                v-for="tech in project.techStack"
-                class="border border-[#352F2D] flex justify-center items-center p-3 rounded-full"
-              >
-                <span v-html="tech.icon"></span>
-              </div>
-            </div>
-          </div>
-        </SpotlightCard>
-      </a>
-    </div>
+          </SpotlightCard>
+        </a>
+      </div>
+    </motion.div>
   </div>
 </template>

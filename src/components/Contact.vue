@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { easeOut, motion } from "motion-v";
+
+// import components
 import SpotlightCard from "./bits/SpotlightCard.vue";
 
 const contactLists = [
@@ -27,42 +30,70 @@ const contactLists = [
   <!-- ////////// Container /////////// -->
   <div class="py-6 md:py-9">
     <!-- ////////// Title ////////// -->
-    <div class="flex items-center gap-4">
-      <div class="border border-[#352F2D] w-full"></div>
-      <h2
-        class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
-      >
-        Contact
-      </h2>
-      <div class="border border-[#352F2D] w-full"></div>
-    </div>
+    <motion.div
+      :initial="{
+        opacity: 0,
+      }"
+      :while-in-view="{
+        opacity: 1,
+      }"
+      :transition="{
+        duration: 1,
+        delay: 0.25,
+        ease: easeOut,
+      }"
+    >
+      <div class="flex items-center gap-4">
+        <div class="border border-[#352F2D] w-full"></div>
+        <h2
+          class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
+        >
+          Contact
+        </h2>
+        <div class="border border-[#352F2D] w-full"></div>
+      </div>
+    </motion.div>
 
     <!-- ////////// Content ////////// -->
-    <div
-      class="flex flex-col md:flex-row px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4"
+    <motion.div
+      :initial="{
+        opacity: 0,
+      }"
+      :while-in-view="{
+        opacity: 1,
+      }"
+      :transition="{
+        duration: 1,
+        delay: 0.5,
+        ease: easeOut,
+      }"
     >
-      <!-- ////////// Item ////////// -->
-      <a
-        v-for="contact in contactLists"
-        :href="contact.path"
-        class="cursor-pointer w-full"
-        target="_blank"
+      <div
+        class="flex flex-col md:flex-row px-2 sm:px-3 md:px-4 lg:px-6 pt-6 lg:py-9 mx-auto max-w-330 gap-4"
       >
-        <SpotlightCard
-          :spotlight-color="contact.spotlightColor"
-          border-radius="rounded-2xl h-full"
-          padding="p-8"
+        <!-- ////////// Item ////////// -->
+        <a
+          v-for="contact in contactLists"
+          :href="contact.path"
+          class="cursor-pointer w-full"
+          target="_blank"
         >
-          <div class="flex flex-col items-center justify-between h-full">
-            <span v-html="contact.icon"></span>
-            <p
-              class="jersey-10-regular text-2xl xl:text-[36px] text-white/60 text-center"
-            >
-              {{ contact.name }}
-            </p>
-          </div>
-        </SpotlightCard>
-      </a>
-    </div>
+          <SpotlightCard
+            :spotlight-color="contact.spotlightColor"
+            border-radius="rounded-2xl h-full"
+            padding="p-8"
+          >
+            <div class="flex flex-col items-center justify-between h-full">
+              <span v-html="contact.icon"></span>
+              <p
+                class="jersey-10-regular text-2xl xl:text-[36px] text-white/60 text-center"
+              >
+                {{ contact.name }}
+              </p>
+            </div>
+          </SpotlightCard>
+        </a>
+      </div>
+    </motion.div>
   </div>
 </template>

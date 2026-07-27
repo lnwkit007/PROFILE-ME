@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { easeOut, motion } from "motion-v";
 import SpotlightCard from "./bits/SpotlightCard.vue";
 
 const stackLitsts = {
@@ -93,46 +94,72 @@ const stackLitsts = {
   <!-- ////////// Container /////////// -->
   <div class="py-6 md:py-9">
     <!-- ////////// Title ////////// -->
-    <div class="flex items-center gap-4">
-      <div class="border border-[#352F2D] w-full"></div>
-      <h2
-        class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer"
-      >
-        <p
-          class="bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
+    <motion.div
+      :initial="{
+        opacity: 0,
+      }"
+      :while-in-view="{
+        opacity: 1,
+      }"
+      :transition="{
+        duration: 1,
+        delay: 0.25,
+        ease: easeOut,
+      }"
+    >
+      <div class="flex items-center gap-4">
+        <div class="border border-[#352F2D] w-full"></div>
+        <h2
+          class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer"
         >
-          My
-        </p>
-        <p
-          class="bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
-        >
-          Stack
-        </p>
-      </h2>
-      <div class="border border-[#352F2D] w-full"></div>
-    </div>
+          <span
+            class="bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
+          >
+            My
+          </span>
+          <span
+            class="bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
+          >
+            Stack
+          </span>
+        </h2>
+        <div class="border border-[#352F2D] w-full"></div>
+      </div>
+    </motion.div>
 
     <!-- ////////// Content ////////// -->
-    <div
-      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 px-2 sm:px-3 md:px-4 lg:px-6 xl:grid-cols-6 grid-rows-3 pt-6 lg:py-9 mx-auto max-w-330 gap-2"
+    <motion.div
+      :initial="{
+        opacity: 0,
+      }"
+      :while-in-view="{
+        opacity: 1,
+      }"
+      :transition="{
+        duration: 1,
+        delay: 0.5,
+        ease: easeOut,
+      }"
     >
-      <!-- ////////// Item ////////// -->
-      <SpotlightCard
-        v-for="(stack, index) in stackLitsts.data"
-        :key="index"
-        :spotlight-color="stack.spotlightColor"
-        :border-radius="stackLitsts.borderRadius"
-        :padding="stackLitsts.padding"
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 px-2 sm:px-3 md:px-4 lg:px-6 xl:grid-cols-6 grid-rows-3 pt-6 lg:py-9 mx-auto max-w-330 gap-2"
       >
-        <div class="flex flex-col items-center justify-between gap-4 h-full">
-          <span v-html="stack.icon" />
-          <p
-            class="noto-sans text-base lg:text-xl text-white/60 text-center"
-          >
-            {{ stack.name }}
-          </p>
-        </div>
-      </SpotlightCard>
-    </div>
+        <!-- ////////// Item ////////// -->
+        <SpotlightCard
+          v-for="(stack, index) in stackLitsts.data"
+          :key="index"
+          :spotlight-color="stack.spotlightColor"
+          :border-radius="stackLitsts.borderRadius"
+          :padding="stackLitsts.padding"
+        >
+          <div class="flex flex-col items-center justify-between gap-4 h-full">
+            <span v-html="stack.icon" />
+            <p class="noto-sans text-base lg:text-xl text-white/60 text-center">
+              {{ stack.name }}
+            </p>
+          </div>
+        </SpotlightCard>
+      </div>
+    </motion.div>
   </div>
 </template>
