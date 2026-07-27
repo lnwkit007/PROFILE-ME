@@ -11,7 +11,7 @@ const router = createRouter({
             component: HomeView
         },
     ],
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior(to, _from, savedPosition) {
         if (savedPosition) {
             return savedPosition
         }
