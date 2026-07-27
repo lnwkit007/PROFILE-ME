@@ -430,7 +430,7 @@ onUnmounted(() => {
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 .pc-behind {
@@ -828,6 +828,33 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+  /* Mobile performance optimizations */
+  .pc-behind {
+    display: none !important;
+  }
+  .pc-card, .pc-card:hover, .pc-card.active {
+    transform: none !important;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5) !important;
+  }
+  .pc-shine, .pc-glare {
+    display: none !important;
+  }
+  .pc-user-info {
+    backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+  }
+  .pc-contact-btn {
+    backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+  .pc-avatar-content .avatar {
+    transform: translateX(-50%) translateZ(0) !important;
+    will-change: auto !important;
+  }
+  .pc-content:not(.pc-avatar-content) {
+    transform: none !important;
+  }
+
   .pc-card {
     height: 70svh;
     max-height: 450px;

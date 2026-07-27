@@ -1,5 +1,5 @@
 <template>
-  <section class="py-6 border-y-2 border-[#352F2D] flex flex-col gap-2">
+  <section ref="sectionRef" class="py-6 border-y-2 border-[#352F2D] flex flex-col gap-2">
     <div
       v-for="(text, index) in texts"
       :key="index"
@@ -8,11 +8,9 @@
       :style="parallaxStyle"
     >
       <div
+        :ref="(el) => setScrollerRef(el, index)"
         :class="`${scrollerClassName} flex whitespace-nowrap text-center font-sans text-4xl font-bold tracking-[-0.02em] drop-shadow md:text-[5rem] md:leading-[5rem]`"
-        :style="{
-          transform: `translateX(${scrollTransforms[index] || '0px'})`,
-          ...scrollerStyle,
-        }"
+        :style="scrollerStyle"
       >
         <span
           v-for="spanIndex in calculatedCopies[index] || 15"
@@ -73,10 +71,12 @@ const props = withDefaults(defineProps<ScrollVelocityProps>(), {
   scrollerStyle: () => ({}),
 });
 
+const sectionRef = ref<HTMLElement | null>(null);
 const containerRef = ref<HTMLDivElement[]>([]);
 const copyRefs = ref<HTMLSpanElement[]>([]);
+const scrollerRefs = ref<HTMLDivElement[]>([]);
 
-const baseX = ref<number[]>([]);
+let baseX: number[] = [];
 const scrollVelocity = ref(0);
 const smoothVelocity = ref(0);
 const velocityFactor = ref(0);
@@ -86,6 +86,8 @@ const calculatedCopies = ref<number[]>([]);
 
 let rafId: number | null = null;
 let scrollTriggerInstance: ScrollTrigger | null = null;
+let observer: IntersectionObserver | null = null;
+const isComponentVisible = ref(false);
 let lastScrollY = 0;
 let lastTime = 0;
 let resizeTimeout: number | null = null;
@@ -96,6 +98,15 @@ const setCopyRef = (
 ) => {
   if (el && el instanceof HTMLSpanElement) {
     copyRefs.value[index] = el;
+  }
+};
+
+const setScrollerRef = (
+  el: Element | ComponentPublicInstance | null,
+  index: number,
+) => {
+  if (el && el instanceof HTMLDivElement) {
+    scrollerRefs.value[index] = el;
   }
 };
 
@@ -132,14 +143,6 @@ const wrap = (min: number, max: number, v: number): number => {
   const mod = (((v - min) % range) + range) % range;
   return mod + min;
 };
-
-const scrollTransforms = computed(() => {
-  return props.texts.map((_, index) => {
-    const singleWidth = copyWidths.value[index];
-    if (singleWidth === undefined || singleWidth === 0) return "0px";
-    return `${wrap(-singleWidth, 0, baseX.value[index] || 0)}px`;
-  });
-});
 
 const updateSmoothVelocity = () => {
   const dampingFactor = props.damping / 1000;
@@ -185,10 +188,22 @@ const animate = (currentTime: number) => {
 
     moveBy +=
       (directionFactors.value[index] || 1) * moveBy * velocityFactor.value;
-    baseX.value[index] = (baseX.value[index] || 0) + moveBy;
+    
+    baseX[index] = (baseX[index] || 0) + moveBy;
+
+    const singleWidth = copyWidths.value[index];
+    if (singleWidth && singleWidth > 0) {
+      const wrappedX = wrap(-singleWidth, 0, baseX[index]);
+      const scroller = scrollerRefs.value[index];
+      if (scroller) {
+        scroller.style.transform = `translateX(${wrappedX}px)`;
+      }
+    }
   });
 
-  rafId = requestAnimationFrame(animate);
+  if (isComponentVisible.value) {
+    rafId = requestAnimationFrame(animate);
+  }
 };
 
 const updateScrollVelocity = () => {
@@ -212,7 +227,7 @@ const updateScrollVelocity = () => {
 onMounted(async () => {
   await nextTick();
 
-  baseX.value = new Array(props.texts.length).fill(0);
+  baseX = new Array(props.texts.length).fill(0);
   copyWidths.value = new Array(props.texts.length).fill(0);
   calculatedCopies.value = new Array(props.texts.length).fill(15);
   directionFactors.value = new Array(props.texts.length).fill(1);
@@ -233,7 +248,27 @@ onMounted(async () => {
     });
   }
 
-  rafId = requestAnimationFrame(animate);
+  if (sectionRef.value) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isComponentVisible.value = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          if (!rafId) {
+            lastTime = performance.now();
+            rafId = requestAnimationFrame(animate);
+          }
+        } else {
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        }
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(sectionRef.value);
+  }
 
   window.addEventListener("resize", debouncedUpdateWidths, { passive: true });
 });
@@ -241,6 +276,9 @@ onMounted(async () => {
 onUnmounted(() => {
   if (rafId) {
     cancelAnimationFrame(rafId);
+  }
+  if (observer) {
+    observer.disconnect();
   }
   if (scrollTriggerInstance) {
     scrollTriggerInstance.kill();
