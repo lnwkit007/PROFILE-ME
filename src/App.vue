@@ -1,28 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { RouterView } from "vue-router";
 
-// import components
-import Hero from "./components/Hero.vue";
-import Navbar from "./components/Navbar.vue";
-import ScrollVelocity from "./components/bits/ScrollVelocity.vue";
-import AboutMe from "./components/AboutMe.vue";
-import MyStack from "./components/MyStack.vue";
-import Contact from "./components/Contact.vue";
-import Projects from "./components/Projects.vue";
-
-const velocity = ref<number>(60);
+// import layouts
+import Navbar from "./layouts/Navbar.vue";
 </script>
 
 <template>
   <Navbar />
-  <Hero />
-  <ScrollVelocity
-    :texts="['FRONT-END', 'UX/UI DESIGNER']"
-    :velocity="velocity"
-    class="custom-scroll-text"
-  />
-  <AboutMe />
-  <MyStack />
-  <Projects />
-  <Contact />
+
+  <router-view />
 </template>

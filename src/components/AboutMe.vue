@@ -6,7 +6,7 @@ import ProfileCard from "./bits/ProfileCard.vue";
 <template>
   <!-- ////////// Container /////////// -->
   <div
-    class="flex items-center justify-between px-4 lg:px-6 py-6 md:py-9 mx-auto max-w-330"
+    class="flex md:min-h-190 items-center justify-between px-4 lg:px-6 py-6 md:py-9 mx-auto max-w-330"
   >
     <div
       class="flex flex-col items-center xl:items-start lg:flex-row gap-6 xl:gap-2"

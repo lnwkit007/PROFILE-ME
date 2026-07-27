@@ -1,9 +1,33 @@
+<script setup lang="ts">
+import { RouterLink } from "vue-router";
+
+const menulists = [
+  {
+    name: "About",
+    path: "/#about",
+  },
+  {
+    name: "Stack",
+    path: "/#stack",
+  },
+  {
+    name: "Project",
+    path: "/#project",
+  },
+  {
+    name: "Contact",
+    path: "/#contact",
+  },
+];
+</script>
+
 <template>
   <nav class="fixed w-full top-0 z-200 p-2">
     <div
       class="flex items-center justify-between mx-auto max-w-330 px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-lg"
     >
-      <span
+      <RouterLink
+        to="/#hero"
         class="jersey-10-regular flex gap-2 text-3xl sm:text-4xl cursor-pointer"
       >
         <p
@@ -16,7 +40,7 @@
         >
           ME
         </p>
-      </span>
+      </RouterLink>
 
       <button class="block sm:hidden">
         <svg
@@ -39,26 +63,13 @@
       </button>
 
       <ul class="hidden sm:flex gap-5 jersey-10-regular text-3xl">
-        <li
-          class="cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
-        >
-          About
-        </li>
-        <li
-          class="cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
-        >
-          Stack
-        </li>
-        <li
-          class="cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
-        >
-          Project
-        </li>
-        <li
-          class="cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
-        >
-          Contact
-        </li>
+        <RouterLink v-for="item in menulists" :to="item.path">
+          <li
+            class="cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
+          >
+            {{ item.name }}
+          </li>
+        </RouterLink>
       </ul>
     </div>
   </nav>
