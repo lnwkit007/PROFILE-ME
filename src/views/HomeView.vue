@@ -15,7 +15,7 @@ const velocity = ref<number>(60);
 <template>
   <Hero id="hero" />
   <ScrollVelocity
-    :texts="['FRONT-END', 'UX/UI DESIGNER']"
+    :texts="['FULL-STACK', 'FRONT-END']"
     :velocity="velocity"
     class="custom-scroll-text"
   />

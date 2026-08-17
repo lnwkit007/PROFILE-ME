@@ -45,14 +45,14 @@ import ProfileCard from "./bits/ProfileCard.vue";
           <!-- ////////// Description ////////// -->
 
           <p class="noto-sans-thai text-base lg:text-xl text-white/60">
-            นักศึกษาชั้นปีที่ 4 สาขาวิศวกรรมคอมพิวเตอร์ สนใจการพัฒนาเว็บไซต์ฝั่ง
-            Front-End และการออกแบบ UX/UI มีประสบการณ์พัฒนาเว็บไซต์ด้วย React,
-            Vue และ TypeScript สามารถนำแบบจาก Figma
-            มาพัฒนาเป็นเว็บไซต์ที่ตรงตามดีไซน์
-            พร้อมให้ความสำคัญกับประสบการณ์ผู้ใช้ (UX)
-            การออกแบบที่รองรับทุกขนาดหน้าจอ (Responsive Design)
-            และการเขียนโค้ดที่มีคุณภาพ
-            พร้อมเรียนรู้และพัฒนาทักษะอย่างต่อเนื่องเพื่อสร้างเว็บไซต์ที่ตอบโจทย์ผู้ใช้งาน
+            นักศึกษาชั้นปีที่ 4 สาขาวิศวกรรมคอมพิวเตอร์ สนใจการพัฒนา Web
+            Application และ Full-Stack Development มีประสบการณ์พัฒนาเว็บไซต์ด้วย
+            React, Vue, TypeScript และ Laravel รวมถึงการจัดการฐานข้อมูลด้วย
+            MySQL สามารถพัฒนาทั้ง Front-End และ Back-End พร้อมนำแบบจาก Figma
+            มาพัฒนาเป็นเว็บไซต์ที่ตรงตามดีไซน์และรองรับทุกขนาดหน้าจอ (Responsive
+            Design) ให้ความสำคัญกับการเขียนโค้ดที่มีคุณภาพ
+            การพัฒนาระบบอย่างเป็นระบบ และการสร้างเว็บไซต์ที่ตอบโจทย์ผู้ใช้งาน
+            พร้อมเรียนรู้เทคโนโลยีใหม่ และพัฒนาทักษะอย่างต่อเนื่อง
           </p>
 
           <div class="flex flex-col gap-2 mt-6">
@@ -119,7 +119,7 @@ import ProfileCard from "./bits/ProfileCard.vue";
         <!-- ////////// Image Me ////////// -->
         <ProfileCard
           name="Kitsada Ketrai"
-          title="Full Stack Designer"
+          title="Full Stack Developer"
           handle="lnwkit007"
           status="Github"
           contact-text="Contact Me"
