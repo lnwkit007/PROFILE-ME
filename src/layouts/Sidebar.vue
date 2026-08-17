@@ -48,11 +48,17 @@ const menulists = [
       'transition-transform duration-300 ease-in-out',
       SidebarStore.isOpenSidebar ? 'translate-x-0' : 'translate-x-full',
     ]"
+    aria-label="Mobile navigation"
+    role="dialog"
+    aria-modal="true"
+    :aria-hidden="!SidebarStore.isOpenSidebar"
   >
     <div class="flex items-center justify-between border-b border-[#7C7978]">
       <RouterLink
         to="/#hero"
         class="jersey-10-regular flex gap-2 text-3xl cursor-pointer px-4"
+        aria-label="PROFILE ME Home"
+        @click="hiddenSidebar"
       >
         <p
           class="bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
@@ -66,7 +72,11 @@ const menulists = [
         </p>
       </RouterLink>
 
-      <button class="flex items-center px-4 py-3" @click="hiddenSidebar">
+      <button
+        class="flex items-center px-4 py-3 cursor-pointer"
+        @click="hiddenSidebar"
+        aria-label="Close navigation menu"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -78,6 +88,7 @@ const menulists = [
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          aria-hidden="true"
           class="lucide lucide-x-icon lucide-x"
         >
           <path d="M18 6 6 18" />
@@ -87,7 +98,12 @@ const menulists = [
     </div>
 
     <ul class="flex flex-col jersey-10-regular text-center text-3xl">
-      <RouterLink v-for="item in menulists" :to="item.path">
+      <RouterLink
+        v-for="item in menulists"
+        :key="item.name"
+        :to="item.path"
+        @click="hiddenSidebar"
+      >
         <li
           class="py-2 cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
         >

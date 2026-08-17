@@ -5,6 +5,7 @@ import { easeOut, motion } from "motion-v";
 <template>
   <section
     class="hero relative w-full overflow-hidden flex justify-center sm:items-center"
+    aria-label="Hero section"
   >
     <!-- ////////// Background Shadow ////////// -->
     <motion.div
@@ -21,7 +22,10 @@ import { easeOut, motion } from "motion-v";
     >
       <img
         src="/image/hero/background-shadow-1.png"
-        alt="background-shadow-1"
+        alt=""
+        width="1440"
+        height="900"
+        decoding="async"
         class="absolute left-1/2 -bottom-25 -translate-x-1/2 z-0 w-full min-w-360 h-auto object-cover pointer-events-none"
       />
     </motion.div>
@@ -49,7 +53,7 @@ import { easeOut, motion } from "motion-v";
       </div>
     </motion.div>
 
-    <!-- ////////// Image Me ////////// -->
+    <!-- ////////// Image Me (LCP Element) ////////// -->
     <motion.div
       :initial="{
         opacity: 0,
@@ -66,7 +70,11 @@ import { easeOut, motion } from "motion-v";
     >
       <img
         src="/image/hero/kitsada.png"
-        alt="kitsada"
+        alt="Kitsada Ketrai - Full-Stack & Front-End Developer"
+        width="630"
+        height="740"
+        fetchpriority="high"
+        decoding="async"
         class="z-4 absolute bottom-0 left-1/2 -translate-x-1/2 w-[clamp(570px,35vw,630px)] min-h-118 sm:h-auto object-cover"
       />
     </motion.div>
@@ -86,7 +94,10 @@ import { easeOut, motion } from "motion-v";
     >
       <img
         src="/image/hero/background-shadow-2.png"
-        alt="background-shadow-2"
+        alt=""
+        width="1440"
+        height="900"
+        decoding="async"
         class="z-5 absolute -bottom-20 left-1/2 -translate-x-1/2 w-full min-w-360 h-auto object-cover pointer-events-none"
       />
     </motion.div>

@@ -28,7 +28,7 @@ const contactLists = [
 
 <template>
   <!-- ////////// Container /////////// -->
-  <div class="py-6 md:py-9">
+  <section id="contact" aria-labelledby="contact-heading" class="py-6 md:py-9">
     <!-- ////////// Title ////////// -->
     <motion.div
       :initial="{
@@ -46,6 +46,7 @@ const contactLists = [
       <div class="flex items-center gap-4">
         <div class="border border-[#352F2D] w-full"></div>
         <h2
+          id="contact-heading"
           class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
         >
           Contact
@@ -73,10 +74,13 @@ const contactLists = [
       >
         <!-- ////////// Item ////////// -->
         <a
-          v-for="contact in contactLists"
+          v-for="(contact, index) in contactLists"
+          :key="index"
           :href="contact.path"
           class="cursor-pointer w-full"
           target="_blank"
+          rel="noopener noreferrer"
+          :aria-label="`Contact via ${contact.name}`"
         >
           <SpotlightCard
             :spotlight-color="contact.spotlightColor"
@@ -84,7 +88,7 @@ const contactLists = [
             padding="p-8"
           >
             <div class="flex flex-col items-center justify-between h-full">
-              <span v-html="contact.icon"></span>
+              <span aria-hidden="true" v-html="contact.icon"></span>
               <p
                 class="jersey-10-regular text-2xl xl:text-[36px] text-white/60 text-center"
               >
@@ -95,5 +99,5 @@ const contactLists = [
         </a>
       </div>
     </motion.div>
-  </div>
+  </section>
 </template>

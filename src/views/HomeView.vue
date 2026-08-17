@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
 // import components
 import Hero from "../components/Hero.vue";
 import ScrollVelocity from "../components/bits/ScrollVelocity.vue";
@@ -9,7 +7,7 @@ import MyStack from "../components/MyStack.vue";
 import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 
-const velocity = ref<number>(60);
+const velocity = 60;
 </script>
 
 <template>

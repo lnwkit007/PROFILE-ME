@@ -92,7 +92,7 @@ const stackLitsts = {
 
 <template>
   <!-- ////////// Container /////////// -->
-  <div class="py-6 md:py-9">
+  <section id="stack" aria-labelledby="stack-heading" class="py-6 md:py-9">
     <!-- ////////// Title ////////// -->
     <motion.div
       :initial="{
@@ -110,6 +110,7 @@ const stackLitsts = {
       <div class="flex items-center gap-4">
         <div class="border border-[#352F2D] w-full"></div>
         <h2
+          id="stack-heading"
           class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer"
         >
           <span
@@ -153,7 +154,7 @@ const stackLitsts = {
           :padding="stackLitsts.padding"
         >
           <div class="flex flex-col items-center justify-between gap-4 h-full">
-            <span v-html="stack.icon" />
+            <span aria-hidden="true" v-html="stack.icon" />
             <p class="noto-sans text-base lg:text-xl text-white/60 text-center">
               {{ stack.name }}
             </p>
@@ -161,5 +162,5 @@ const stackLitsts = {
         </SpotlightCard>
       </div>
     </motion.div>
-  </div>
+  </section>
 </template>

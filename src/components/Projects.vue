@@ -148,7 +148,7 @@ const projectLists = [
 
 <template>
   <!-- ////////// Container /////////// -->
-  <div class="py-6 md:py-9">
+  <section id="project" aria-labelledby="project-heading" class="py-6 md:py-9">
     <!-- ////////// Title ////////// -->
     <motion.div
       :initial="{
@@ -166,6 +166,7 @@ const projectLists = [
       <div class="flex items-center gap-4">
         <div class="border border-[#352F2D] w-full"></div>
         <h2
+          id="project-heading"
           class="jersey-10-regular flex gap-2 text-6xl lg:text-[96px] cursor-pointer bg-[linear-gradient(180deg,#F55303_0%,#632701_90%)] bg-clip-text text-transparent"
         >
           Projects
@@ -193,18 +194,25 @@ const projectLists = [
       >
         <!-- ////////// Item ////////// -->
         <a
-          v-for="project in projectLists"
+          v-for="(project, index) in projectLists"
+          :key="index"
           :href="project.path"
           class="cursor-pointer"
           target="_blank"
+          rel="noopener noreferrer"
+          :aria-label="`View project: ${project.title}`"
         >
           <SpotlightCard border-radius="rounded-2xl h-full" padding="p-6">
             <div class="flex flex-col justify-between gap-3 h-full">
               <div class="flex flex-col gap-2">
                 <img
                   :src="project.images"
-                  :alt="project.title"
-                  class="rounded-lg"
+                  :alt="`Screenshot of ${project.title}`"
+                  width="400"
+                  height="225"
+                  loading="lazy"
+                  decoding="async"
+                  class="rounded-lg w-full h-auto object-cover"
                 />
 
                 <div class="flex flex-col gap-1">
@@ -219,10 +227,11 @@ const projectLists = [
 
               <div class="flex gap-2 mt-2">
                 <div
-                  v-for="tech in project.techStack"
+                  v-for="(tech, techIdx) in project.techStack"
+                  :key="techIdx"
                   class="border border-[#352F2D] flex justify-center items-center p-3 rounded-full"
                 >
-                  <span v-html="tech.icon"></span>
+                  <span aria-hidden="true" v-html="tech.icon"></span>
                 </div>
               </div>
             </div>
@@ -230,5 +239,5 @@ const projectLists = [
         </a>
       </div>
     </motion.div>
-  </div>
+  </section>
 </template>

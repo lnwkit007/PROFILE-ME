@@ -361,7 +361,10 @@ onUnmounted(() => {
               class="avatar"
               :src="avatarUrl"
               :alt="`${name || 'User'} avatar`"
+              width="400"
+              height="400"
               loading="lazy"
+              decoding="async"
               @error="handleAvatarError"
             />
 
@@ -371,7 +374,10 @@ onUnmounted(() => {
                   <img
                     :src="miniAvatarUrl || avatarUrl"
                     :alt="`${name || 'User'} mini avatar`"
+                    width="48"
+                    height="48"
                     loading="lazy"
+                    decoding="async"
                     @error="handleMiniAvatarError"
                   />
                 </div>

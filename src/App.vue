@@ -7,9 +7,11 @@ import Sidebar from "./layouts/Sidebar.vue";
 </script>
 
 <template>
-  <Navbar />
-
-  <Sidebar />
-
-  <router-view />
+  <header>
+    <Navbar />
+    <Sidebar />
+  </header>
+  <main>
+    <router-view />
+  </main>
 </template>
