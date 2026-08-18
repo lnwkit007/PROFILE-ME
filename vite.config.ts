@@ -11,9 +11,15 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor-vue': ['vue', 'vue-router', 'pinia'],
-          'vendor-animation': ['gsap', 'motion-v'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('vue') || id.includes('pinia')) {
+              return 'vendor-vue'
+            }
+            if (id.includes('gsap') || id.includes('motion-v')) {
+              return 'vendor-animation'
+            }
+          }
         },
       },
     },
