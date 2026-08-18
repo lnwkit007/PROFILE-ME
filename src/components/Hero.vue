@@ -56,16 +56,10 @@ import { easeOut, motion } from "motion-v";
     <!-- ////////// Image Me (LCP Element) ////////// -->
     <motion.div
       :initial="{
-        opacity: 0,
+        opacity: 1,
       }"
       :animate="{
         opacity: 1,
-      }"
-      :whileInView="{ opacity: 1 }"
-      :transition="{
-        duration: 1,
-        delay: 0.75,
-        ease: easeOut,
       }"
     >
       <img

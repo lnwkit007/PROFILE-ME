@@ -53,11 +53,26 @@ const isFocused = ref<boolean>(false);
 const position = ref<Position>({ x: 0, y: 0 });
 const opacity = ref<number>(0);
 
+let rafId: number | null = null;
+let cachedRect: DOMRect | null = null;
+
 const handleMouseMove = (e: MouseEvent) => {
   if (!divRef.value || isFocused.value) return;
 
-  const rect = divRef.value.getBoundingClientRect();
-  position.value = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  if (rafId !== null) return;
+
+  const clientX = e.clientX;
+  const clientY = e.clientY;
+
+  rafId = requestAnimationFrame(() => {
+    rafId = null;
+    if (!cachedRect && divRef.value) {
+      cachedRect = divRef.value.getBoundingClientRect();
+    }
+    if (cachedRect) {
+      position.value = { x: clientX - cachedRect.left, y: clientY - cachedRect.top };
+    }
+  });
 };
 
 const handleFocus = () => {
@@ -72,9 +87,17 @@ const handleBlur = () => {
 
 const handleMouseEnter = () => {
   opacity.value = 0.6;
+  if (divRef.value) {
+    cachedRect = divRef.value.getBoundingClientRect();
+  }
 };
 
 const handleMouseLeave = () => {
   opacity.value = 0;
+  cachedRect = null;
+  if (rafId !== null) {
+    cancelAnimationFrame(rafId);
+    rafId = null;
+  }
 };
 </script>

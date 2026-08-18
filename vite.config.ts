@@ -8,4 +8,14 @@ export default defineConfig({
     vue(),
     tailwindcss(),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-vue': ['vue', 'vue-router', 'pinia'],
+          'vendor-animation': ['gsap', 'motion-v'],
+        },
+      },
+    },
+  },
 })

@@ -110,19 +110,25 @@ const setScrollerRef = (
 };
 
 const updateWidths = () => {
-  props.texts.forEach((_, index) => {
-    if (copyRefs.value[index] && containerRef.value[index]) {
-      const singleCopyWidth = copyRefs.value[index].offsetWidth;
-      const containerWidth = containerRef.value[index].offsetWidth;
-      const viewportWidth = window.innerWidth;
+  requestAnimationFrame(() => {
+    props.texts.forEach((_, index) => {
+      if (copyRefs.value[index] && containerRef.value[index]) {
+        const singleCopyWidth = copyRefs.value[index].offsetWidth;
+        const containerWidth = containerRef.value[index].offsetWidth;
+        const viewportWidth = window.innerWidth;
 
-      const effectiveWidth = Math.max(containerWidth, viewportWidth);
-      const minCopies = Math.ceil((effectiveWidth * 2.5) / singleCopyWidth);
-      const optimalCopies = Math.max(minCopies, 8);
+        const effectiveWidth = Math.max(containerWidth, viewportWidth);
+        const minCopies = Math.ceil((effectiveWidth * 2.5) / singleCopyWidth);
+        const optimalCopies = Math.max(minCopies, 8);
 
-      copyWidths.value[index] = singleCopyWidth;
-      calculatedCopies.value[index] = optimalCopies;
-    }
+        if (copyWidths.value[index] !== singleCopyWidth) {
+          copyWidths.value[index] = singleCopyWidth;
+        }
+        if (calculatedCopies.value[index] !== optimalCopies) {
+          calculatedCopies.value[index] = optimalCopies;
+        }
+      }
+    });
   });
 };
 
@@ -230,10 +236,6 @@ onMounted(async () => {
   copyWidths.value = new Array(props.texts.length).fill(0);
   calculatedCopies.value = new Array(props.texts.length).fill(15);
   directionFactors.value = new Array(props.texts.length).fill(1);
-
-  setTimeout(() => {
-    updateWidths();
-  }, 100);
 
   updateWidths();
 
