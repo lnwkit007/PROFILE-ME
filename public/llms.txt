@@ -1,0 +1,19 @@
+# Kitsada Ketrai - Full-Stack & Front-End Developer
+
+> Kitsada Ketrai is a Computer Engineering student and Full-Stack Developer specializing in Front-End development, React, Vue, TypeScript, UX/UI Design, and modern web applications.
+
+## Details
+
+This website is the official portfolio of Kitsada Ketrai. It presents information about technical skills, computer engineering projects, and contact avenues.
+
+## Links
+
+- [Official Portfolio](https://kitsada.130169.xyz/): Main landing page with full profile details.
+- [GitHub Profile](https://github.com/lnwkit007): Open-source project repositories and contributions.
+
+## Key Sections
+
+- [About Section](https://kitsada.130169.xyz/#about): Developer background and education details.
+- [Tech Stack Section](https://kitsada.130169.xyz/#stack): Frontend, backend, design, and software engineering tools.
+- [Projects Section](https://kitsada.130169.xyz/#project): Showcase of web application developments including Digital Reading Platform.
+- [Contact Section](https://kitsada.130169.xyz/#contact): Email and social media contact links.

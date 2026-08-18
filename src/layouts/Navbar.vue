@@ -91,17 +91,14 @@ const menulists = [
         </button>
 
         <ul class="hidden sm:flex gap-5 jersey-10-regular text-3xl">
-          <RouterLink
-            v-for="item in menulists"
-            :key="item.name"
-            :to="item.path"
-          >
-            <li
+          <li v-for="item in menulists" :key="item.name">
+            <RouterLink
+              :to="item.path"
               class="cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
             >
               {{ item.name }}
-            </li>
-          </RouterLink>
+            </RouterLink>
+          </li>
         </ul>
       </div>
     </nav>

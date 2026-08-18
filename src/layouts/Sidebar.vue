@@ -98,18 +98,15 @@ const menulists = [
     </div>
 
     <ul class="flex flex-col jersey-10-regular text-center text-3xl">
-      <RouterLink
-        v-for="item in menulists"
-        :key="item.name"
-        :to="item.path"
-        @click="hiddenSidebar"
-      >
-        <li
-          class="py-2 cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
+      <li v-for="item in menulists" :key="item.name">
+        <RouterLink
+          :to="item.path"
+          class="block py-2 cursor-pointer bg-[linear-gradient(180deg,#E4E4E4_0%,#0C0503_90%)] bg-clip-text text-transparent"
+          @click="hiddenSidebar"
         >
           {{ item.name }}
-        </li>
-      </RouterLink>
+        </RouterLink>
+      </li>
     </ul>
   </aside>
 </template>
